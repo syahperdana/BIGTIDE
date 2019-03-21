@@ -65,8 +65,8 @@ print("\nIndonesian Tidal Station Database")
 print("      Real Time Observation      ")
 print("     Version 1.0 by: MasBoyo     \n")
 	
-# MainDir = "/root/PasutBIG/Data"
-MainDir = "C:\Users\BOYO\Documents\PasutBIG\Data"
+MainDir = "/root/PasutBIG/Data" # Change to your directory path where this script located
+
 if os.path.isdir(MainDir) is False:
 	os.mkdir(MainDir)
 	print("\nDirectory \"" + MainDir + "\" created")
