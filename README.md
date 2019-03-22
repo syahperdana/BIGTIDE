@@ -27,4 +27,3 @@ if os.path.isdir(MainDir) is False:
 	print("\nDirectory \"" + MainDir + "\" created")
 else:
 ```
-https://github.com/syahperdana/BIGTIDE/blob/73cc87f1697aa20634c12186fa2d6c1047ae2072/main.py#L65-L73
