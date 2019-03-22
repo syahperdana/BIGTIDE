@@ -14,7 +14,7 @@ Tide data owned by BIG is kept in the database system and is connected to Indone
 <h5 align="center"><b>Fig. 2.</b> Directory tree of BIGTIDE</h5>
 
 <h2>Requirements</h2>
-Created and tested with Python 3.6.5 (with backward compatible to >= 2.7.x), on Ubuntu 18.04 LTS. The only additional packages required are numpy (1.16.2). Do not forget to modify the <code>MainDir</code> variable inside <code>main.py</code>:<br/><br/>
+Created and tested with Python 3.6.5 (with backward compatible to >= 2.7.x), on Ubuntu 18.04 LTS. The only additional packages required are numpy (1.16.2). Do not forget to modify the <code>MainDir</code> variable inside <code><a href="https://github.com/syahperdana/BIGTIDE/blob/master/main.py">main.py</a></code>:<br/><br/>
 
 ```python
 print("      Real Time Observation      ")
@@ -27,3 +27,4 @@ if os.path.isdir(MainDir) is False:
 	print("\nDirectory \"" + MainDir + "\" created")
 else:
 ```
+https://github.com/syahperdana/BIGTIDE/blob/73cc87f1697aa20634c12186fa2d6c1047ae2072/main.py#L65-L73
