@@ -27,3 +27,5 @@ if os.path.isdir(MainDir) is False:
 	print("\nDirectory \"" + MainDir + "\" created")
 else:
 ```
+*Update:*
+- Also runs on Termux (tested on Android 9.0 Pie)
