@@ -1,17 +1,27 @@
 import os
-import glob
 import csv
 import sys
 import time
+import datetime
+import tarfile
 if sys.version_info >= (3, 0):
 	import urllib.request
 else:
 	import urllib
 import numpy as np
 from collections import OrderedDict
+from glob import glob
 
 if not getattr(__builtins__, "WindowsError", None):
-    class WindowsError(OSError): pass
+	class WindowsError(OSError): pass
+
+def get_size(filename):
+	total_size = 0
+	for dirpath, dirnames, filenames in os.walk(filename):
+		for f in filenames:
+			fp = os.path.join(dirpath, f)
+			total_size += os.path.getsize(fp)
+	return total_size
 
 def reporthook(count, block_size, total_size):
 	global start_time
@@ -61,17 +71,38 @@ def savedbf(filename):
 	filerename = secondrow[0].replace('/', r'').replace(' ', r'Z').replace(':', r'') + "-" + lastrow[0].replace('/', r'').replace(' ', r'Z').replace(':', r'') + ".csv"
 	return filerename
 
+def backup(outputname, inputname, size):
+	totalsize = 0
+	with tarfile.open(outputname, "w:gz") as tar:
+		for file in inputname:
+			filesize = os.path.getsize(file)
+			tar.add(file, arcname=file.split('PasutBIG')[1])
+			totalsize += filesize
+			percent = min(int(100 * totalsize / size), 100)
+			sys.stdout.write("\r...%d%%, %d MB" %
+					(percent, totalsize / (1024 * 1024)))
+			sys.stdout.flush()
+	tar.close()
+
 print("\nIndonesian Tidal Station Database")
 print("      Real Time Observation      ")
 print("     Version 1.0 by: MasBoyo     \n")
 	
 MainDir = "/root/PasutBIG/Data" # Change to your directory path where this script located
+DataDir = os.path.join(MainDir, "Data")
+ArchDir = os.path.join(MainDir, "Archive")
 
-if os.path.isdir(MainDir) is False:
-	os.mkdir(MainDir)
-	print("\nDirectory \"" + MainDir + "\" created")
+if os.path.isdir(DataDir) is False:
+	os.mkdir(DataDir)
+	print("\nDirectory \"" + DataDir + "\" created")
 else:
-	print("\nDirectory \"" + MainDir + "\" already existed")
+	print("\nDirectory \"" + DataDir + "\" already existed")
+
+if os.path.isdir(ArchDir) is False:
+	os.mkdir(ArchDir)
+	print("\nDirectory \"" + ArchDir + "\" created")
+else:
+	print("\nDirectory \"" + ArchDir + "\" already existed")
 
 Results = []
 with open("PasutBIG.csv") as csvfile:
@@ -89,9 +120,10 @@ for row in Province:
 	uProvince[row] = True
 
 Pos = [2,3,4]
+Pop = []
 for row in range(len(uProvince)):
 	SelectProvince = list(uProvince.items())[row][0]
-	ProvDir = os.path.join(MainDir, SelectProvince)
+	ProvDir = os.path.join(DataDir, SelectProvince)
 	if os.path.isdir(ProvDir) is False:
 		os.mkdir(ProvDir)
 		print("\nDirectory \"" + ProvDir + "\" created")
@@ -140,7 +172,7 @@ for row in range(len(uProvince)):
 			r.close()
 
 			delimiter = ','
-			csvs = glob.glob(os.path.join(StationDir, '*.csv'))
+			csvs = glob(os.path.join(StationDir, '*.csv'))
 			TideMerge = os.path.join(StationDir, 'merged_data.csv')
 			if sys.version_info >= (3, 0):
 				f = open(TideMerge, "w", newline = "")
@@ -191,5 +223,13 @@ for row in range(len(uProvince)):
 			except WindowsError as e:
 				print("File \"" + FinalDataRename + "\" already existed")
 				os.remove(TideFilter)
+
+			Pop.append(FinalDataRename)
+
+DataDirSize = get_size(DataDir)
+ArchName = os.path.join(ArchDir, "Backup-" + datetime.datetime.now().strftime("%Y%m%dZ%H%M%S") + ".tar.gz")
+print("\nCreating backup")
+backup(ArchName, Pop, DataDirSize)
+print(" | Backup \"" + os.path.basename(ArchName) + "\" created")
 
 print("\nProcess complete!")
