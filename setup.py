@@ -43,8 +43,8 @@ setup(
         'Topic :: Utilities',
     ],
     setup_requires = ['Cython>=0.28.5, <1.0'],
-    cmdclass = {'build_ext': build_ext}
+    cmdclass = {'build_ext': build_ext},
     keywords = [
         'Pasut', 'BIG', 'Pasang Surut',
-    ],
+    ]
 )
