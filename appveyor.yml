@@ -65,12 +65,19 @@ environment:
       TOXPYTHON: C:\python36\python.exe
       WINDOWS_SDK_VERSION: v7.1
 
+    - PYTHON: C:\Python36
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python36
+      PYTHON_VERSION: '3.6'
+      TEST_LIBRARIES_ONLY: False
+      TOXENV: 'py36'
+      TOXPYTHON: C:\python36\python.exe
+      WINDOWS_SDK_VERSION: v7.1
+
 init:
   - ps: echo $env:TOXENV
-  - ps: ls C:\Python*
 
 install:
-  - python --version
   - pip install -r requirements.txt
   - pip install tox
   - pip install tox-travis
