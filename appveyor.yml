@@ -3,60 +3,71 @@ environment:
 
   matrix:
     - PYTHON: C:\Python27
-      #PYTHON_VERSION: 2.7
-      #PYTHON_ARCH: 32
-      TOXENV: "py27"
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python27
+      PYTHON_VERSION: '2.7'
       TEST_LIBRARIES_ONLY: True
+      TOXENV: 'py27'
+      TOXPYTHON: C:\python27\python.exe
+      WINDOWS_SDK_VERSION: v7.0
 
     - PYTHON: C:\Python27
-      #PYTHON_VERSION: 2.7
-      #PYTHON_ARCH: 32
-      TOXENV: "py27"
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python27
+      PYTHON_VERSION: '2.7'
       TEST_LIBRARIES_ONLY: False
+      TOXENV: 'py27'
+      TOXPYTHON: C:\python27\python.exe
+      WINDOWS_SDK_VERSION: v7.0
 
     - PYTHON: C:\Python34
-      #PYTHON_VERSION: 3.4
-      #PYTHON_ARCH: 32
-      TOXENV: "py34"
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python34
+      PYTHON_VERSION: '3.4'
       TEST_LIBRARIES_ONLY: True
+      TOXENV: 'py34'
+      TOXPYTHON: C:\python34\python.exe
+      WINDOWS_SDK_VERSION: v7.1
 
     - PYTHON: C:\Python34
-      #PYTHON_VERSION: 3.4
-      #PYTHON_ARCH: 32
-      TOXENV: "py34"
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python34
+      PYTHON_VERSION: '3.4'
       TEST_LIBRARIES_ONLY: False
+      TOXENV: 'py34'
+      TOXPYTHON: C:\python34\python.exe
+      WINDOWS_SDK_VERSION: v7.1
 
     - PYTHON: C:\Python35
-      #PYTHON_VERSION: 3.5
-      #PYTHON_ARCH: 32
-      TOXENV: "py35"
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python35
+      PYTHON_VERSION: '3.5'
       TEST_LIBRARIES_ONLY: True
+      TOXENV: 'py35'
+      TOXPYTHON: C:\python35\python.exe
+      WINDOWS_SDK_VERSION: v7.1
 
     - PYTHON: C:\Python35
-      #PYTHON_VERSION: 3.5
-      #PYTHON_ARCH: 32
-      TOXENV: "py35"
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python35
+      PYTHON_VERSION: '3.5'
       TEST_LIBRARIES_ONLY: False
+      TOXENV: 'py35'
+      TOXPYTHON: C:\python35\python.exe
+      WINDOWS_SDK_VERSION: v7.1
 
     - PYTHON: C:\Python36
-      #PYTHON_VERSION: 3.6
-      #PYTHON_ARCH: 32
-      TOXENV: "py36"
+      PYTHON_ARCH: '32'
+      PYTHON_HOME: C:\python36
+      PYTHON_VERSION: '3.6'
       TEST_LIBRARIES_ONLY: True
-
-    - PYTHON: C:\Python36
-      #PYTHON_VERSION: 3.6
-      #PYTHON_ARCH: 32
-      TOXENV: "py36"
-      TEST_LIBRARIES_ONLY: False
+      TOXENV: 'py36'
+      TOXPYTHON: C:\python36\python.exe
+      WINDOWS_SDK_VERSION: v7.1
 
 init:
-  - ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%
-  - ECHO \"%APPVEYOR_SCHEDULED_BUILD%\"
-  - ps: if ($env:APPVEYOR_PULL_REQUEST_NUMBER -and $env:APPVEYOR_BUILD_NUMBER -ne ((Invoke-RestMethod `
-        https://ci.appveyor.com/api/projects/$env:APPVEYOR_ACCOUNT_NAME/$env:APPVEYOR_PROJECT_SLUG/history?recordsNumber=50).builds | `
-        Where-Object pullRequestId -eq $env:APPVEYOR_PULL_REQUEST_NUMBER)[0].buildNumber) { `
-          throw "There are newer queued builds for this pull request, failing early." }
+  - ps: echo $env:TOXENV
+  - ps: ls C:\Python*
 
 install:
   - python --version
@@ -83,6 +94,13 @@ artifacts:
 #  - TODO: upload the content of dist/*.whl to a public wheelhouse
 
 on_finish:
-  - ps: |
+  - IF "%TOXENV%"=="py27"  (
+    ps: |
+      $wc = New-Object 'System.Net.WebClient'
+      $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
+    )
+  - IF "%TOXENV%"!="py27"  (
+    ps: |
       $wc = New-Object 'System.Net.WebClient'
       $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nose2-junit.xml))
+    )
