@@ -1,5 +1,7 @@
 import pytest
 
+from PasutBIG.csv import getlastrow, getsecondrow, savedb, savedbf
+
 def test_second_row():
 	assert(getsecondrow('test2.csv') == ['2019/03/11 13:23:00','0000.70','0000.68'])
 
