@@ -5,10 +5,6 @@ import os
 from glob import glob
 from setuptools import find_packages, setup
 
-def build_ext(*args, **kwargs):
-    from Cython.Distutils import build_ext
-    return build_ext(*args, **kwargs)
-
 here = os.path.abspath(os.path.dirname(__file__))
 try:
     with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
@@ -43,11 +39,8 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Topic :: Utilities',
+        'Topic :: Utilities'
     ],
-    setup_requires = ['Cython>=0.28.5, <1.0'],
-    cmdclass = {'build_ext': build_ext},
     keywords = [
         'Pasut', 'BIG', 'Pasang Surut',
     ]
