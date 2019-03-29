@@ -2,9 +2,8 @@
 
 import io
 import os
-from distutils.core import setup
 from glob import glob
-from setuptools import find_packages
+from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 try:
@@ -18,7 +17,7 @@ setup(
     version = '0.1',
     description = 'Python script for fetching real time tidal observation from Badan Informasi Geospasial (BIG).',
     long_description = long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type = 'text/markdown',
     url = 'https://github.com/syahperdana/BIGTIDE',
     email = 'syahperdana@gmail.com',
     author = 'Aldwin Syahperdana',
@@ -28,9 +27,10 @@ setup(
     package_dir = {'': 'src'},
     py_modules = [os.path.splitext(os.path.basename(path))[0] for path in glob('src/*.py')],
     include_package_data = True,
-    classifiers=[
+    classifiers = [
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: Unix',
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
@@ -42,7 +42,9 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Topic :: Utilities',
     ],
-    keywords=[
+    setup_requires = ['Cython>=0.28.5, <1.0'],
+    cmdclass = {'build_ext': build_ext}
+    keywords = [
         'Pasut', 'BIG', 'Pasang Surut',
     ],
 )
