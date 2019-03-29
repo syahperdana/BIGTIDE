@@ -1,9 +1,4 @@
 import pytest
-import sys
-import os
-
-sys.path.insert(0, os.path.abspath('.'))
-from PasutBIG.csv import getsecondrow, getlastrow, savedb, savedbf
 
 def test_second_row():
 	assert(getsecondrow('test2.csv') == ['2019/03/11 13:23:00','0000.70','0000.68'])
