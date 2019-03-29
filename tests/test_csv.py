@@ -8,7 +8,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 print(cwd)
 print(dir_path)
 
-from PasutBIG import ccsv
+import ccsv
 
 def test_second_row():
 	assert(getsecondrow('test2.csv') == ['2019/03/11 13:23:00','0000.70','0000.68'])
