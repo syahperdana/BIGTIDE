@@ -1,12 +1,13 @@
 language: python
 sudo: false
+dist: xenial
 python:
   - "2.6"
   - "2.7"
-  - "3.3"
   - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7"
 before_install:
   - python --version
   - uname -a
@@ -14,6 +15,7 @@ before_install:
 install:
   - pip install -r requirements.txt
   - pip install tox
+  - pip install tox-travis
   - virtualenv --version
   - easy_install --version
   - pip --version
