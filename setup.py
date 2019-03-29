@@ -5,6 +5,10 @@ import os
 from glob import glob
 from setuptools import find_packages, setup
 
+def build_ext(*args, **kwargs):
+    from Cython.Distutils import build_ext
+    return build_ext(*args, **kwargs)
+
 here = os.path.abspath(os.path.dirname(__file__))
 try:
     with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
