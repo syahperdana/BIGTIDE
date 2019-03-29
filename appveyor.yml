@@ -104,10 +104,12 @@ on_finish:
 #    $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
 #    }
 
-  - ps: >-
-    If ($env:TOXENV -Match "py27") {
-    (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
-    }
+#  - ps: >-
+#    If ($env:TOXENV -Match "py27") {
+#    (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
+#    }
+
+  - ps: if (($env:TOXENV -Match "py27") { (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml)) }
 
 #    Else {
 #      $wc = New-Object 'System.Net.WebClient'
