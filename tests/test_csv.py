@@ -1,6 +1,7 @@
 import pytest
 import os
 
+os.chdir("src")
 cwd = os.getcwd()
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
