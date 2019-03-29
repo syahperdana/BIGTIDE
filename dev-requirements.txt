@@ -1,3 +1,4 @@
-nose
+pytest
+cython
 numpy
 wheel
