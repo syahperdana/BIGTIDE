@@ -10,7 +10,7 @@ def getsecondrow(filename):
   with open(filename, 'r') as f:
     for row, line in enumerate(f):
       if row == 1:
-        secondrow = line.split(",")
+        secondrow = line.strip().split(",")
         break
     return secondrow
 
