@@ -5,49 +5,49 @@ environment:
     - PYTHON: C:\Python27
       #PYTHON_VERSION: 2.7
       #PYTHON_ARCH: 32
-      TOX_ENV: "py27"
+      TOXENV: "py27"
       TEST_LIBRARIES_ONLY: True
 
     - PYTHON: C:\Python27
       #PYTHON_VERSION: 2.7
       #PYTHON_ARCH: 32
-      TOX_ENV: "py27"
+      TOXENV: "py27"
       TEST_LIBRARIES_ONLY: False
 
     - PYTHON: C:\Python34
       #PYTHON_VERSION: 3.4
       #PYTHON_ARCH: 32
-      TOX_ENV: "py34"
+      TOXENV: "py34"
       TEST_LIBRARIES_ONLY: True
 
     - PYTHON: C:\Python34
       #PYTHON_VERSION: 3.4
       #PYTHON_ARCH: 32
-      TOX_ENV: "py34"
+      TOXENV: "py34"
       TEST_LIBRARIES_ONLY: False
 
     - PYTHON: C:\Python35
       #PYTHON_VERSION: 3.5
       #PYTHON_ARCH: 32
-      TOX_ENV: "py35"
+      TOXENV: "py35"
       TEST_LIBRARIES_ONLY: True
 
     - PYTHON: C:\Python35
       #PYTHON_VERSION: 3.5
       #PYTHON_ARCH: 32
-      TOX_ENV: "py35"
+      TOXENV: "py35"
       TEST_LIBRARIES_ONLY: False
 
     - PYTHON: C:\Python36
       #PYTHON_VERSION: 3.6
       #PYTHON_ARCH: 32
-      TOX_ENV: "py36"
+      TOXENV: "py36"
       TEST_LIBRARIES_ONLY: True
 
     - PYTHON: C:\Python36
       #PYTHON_VERSION: 3.6
       #PYTHON_ARCH: 32
-      TOX_ENV: "py36"
+      TOXENV: "py36"
       TEST_LIBRARIES_ONLY: False
 
 init:
