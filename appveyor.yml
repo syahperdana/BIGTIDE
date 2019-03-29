@@ -94,13 +94,11 @@ artifacts:
 #  - TODO: upload the content of dist/*.whl to a public wheelhouse
 
 on_finish:
-  - IF "%TOXENV%"=="py27"  (
-    ps: |
+  - ps: >-
+    If ($env:TOXENV -Match "py27") {
       $wc = New-Object 'System.Net.WebClient'
       $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
-    )
-  - IF "%TOXENV%"!="py27"  (
-    ps: |
+    } Else {
       $wc = New-Object 'System.Net.WebClient'
       $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nose2-junit.xml))
-    )
+    }
