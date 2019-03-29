@@ -1,15 +1,15 @@
 import pytest
 
-import ccsv
+from PasutBIG.csv import getlastrow, getlastrow, savedb, savedbf
 
 def test_second_row():
-	assert(ccsv.getsecondrow('./tests/test2.csv') == ['2019/03/11 13:23:00','0000.70','0000.68'])
+	assert(getsecondrow('./tests/test2.csv') == ['2019/03/11 13:23:00','0000.70','0000.68'])
 
 def test_last_row():
-	assert(ccsv.getlastrow('./tests/test2.csv') == ['2019/03/28 14:00:00','0000.69','0000.64'])
+	assert(getlastrow('./tests/test2.csv') == ['2019/03/28 14:00:00','0000.69','0000.64'])
 
 def test_save_db():
-	assert(ccsv.savedb('./tests/test1.csv') == "20190311Z132300-20190328Z140000.csv")
+	assert(savedb('./tests/test1.csv') == "20190311Z132300-20190328Z140000.csv")
 
 def test_save_dbf():
-	assert(ccsv.savedbf('./tests/test2.csv') == "20190311Z132300-20190328Z140000.csv")
+	assert(savedbf('./tests/test2.csv') == "20190311Z132300-20190328Z140000.csv")
