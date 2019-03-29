@@ -1,5 +1,6 @@
 import pytest
 
+sys.path.insert(0, os.path.abspath('.'))
 from PasutBIG.csv import getsecondrow, getlastrow, savedb, savedbf
 
 def test_second_row():
