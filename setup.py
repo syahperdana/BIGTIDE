@@ -6,11 +6,18 @@ from glob import glob
 from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-try:
-    with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-        long_description = '\n' + f.read()
-except FileNotFoundError:
-    long_description = DESCRIPTION
+if sys.version_info >= (3, 0):
+    try:
+        with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+            long_description = '\n' + f.read()
+    except FileNotFoundError:
+        long_description = DESCRIPTION
+else:
+    try:
+        with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+            long_description = '\n' + f.read()
+    except IOError:
+        long_description = DESCRIPTION
 
 setup(
     name = 'PasutBIG',
