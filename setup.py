@@ -2,6 +2,7 @@
 
 import io
 import os
+import sys
 from glob import glob
 from setuptools import find_packages, setup
 
