@@ -1,3 +1,6 @@
+BIGTIDE
+=======
+
 .. image:: https://travis-ci.org/syahperdana/BIGTIDE.svg?branch=master
         :target: https://travis-ci.org/syahperdana/BIGTIDE
         :alt: Travis Build Status
@@ -9,10 +12,6 @@
 .. image:: https://img.shields.io/badge/License-MIT-yellow.svg
         :target: ../master/LICENSE
         :alt: License Information
-
-
-BIGTIDE
-=======
 
 :Author: Aldwin Syahperdana
 :Contact: syahperdana@gmail.com
