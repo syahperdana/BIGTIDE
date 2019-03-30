@@ -45,6 +45,8 @@ The Indonesian Geospatial Information Agency (BIG) announce the plan to establis
         :width: 75%
         :align: center
 
+**Fig. 1.** Tide gauge stations across Indonesia
+
 Introductions
 -------------
 
@@ -57,20 +59,24 @@ Tide data owned by BIG is kept in the database system and is connected to Indone
         :width: 100%
         :align: center
 
+**Fig. 2.** Directory tree of BIGTIDE
+
 Requirements
 ------------
 
 Created and tested with Python 3.6.5 (with backward compatible to >= 2.7.x), on Ubuntu 18.04 LTS. The only additional packages required are numpy (1.16.2). Do not forget to modify the :literal:`MainDir` variable inside `main.py <https://github.com/syahperdana/BIGTIDE/blob/0d720846a8952b797bf89e992d938517bc918f91/main.py#L68>`__:
 
->>> print("      Real Time Observation      ")
->>> print("     Version 1.0 by: MasBoyo     n")
->>>
->>> MainDir = "/root/PasutBIG/Data" # Change to your directory path where this script located
->>>
->>> if os.path.isdir(MainDir) is False:
->>> 	os.mkdir(MainDir)
->>> 	print("nDirectory "" + MainDir + "" created")
->>> else:
+.. code-block:: python
+
+	print("      Real Time Observation      ")
+	print("     Version 1.0 by: MasBoyo     \n")
+	
+	MainDir = "/root/PasutBIG/Data" # Change to your directory path where this script located
+	
+	if os.path.isdir(MainDir) is False:
+		os.mkdir(MainDir)
+		print("\nDirectory \"" + MainDir + "\" created")
+	else:
 
 *Update:*
 - Also runs on Termux (tested on Android 9.0 Pie)
