@@ -13,7 +13,7 @@
    :target: ../master/LICENSE
 
 :Author: Aldwin Syahperdana
-:Contact: syahperdana@gmail.com
+:contact: syahperdana@gmail.com
 :date: $Date: 2019-03-21 10:23:53 +0700 (Tue, 03 Jan 2012) $
 :status: Work in progress
 :revision: $Revision: 01 $
@@ -22,7 +22,7 @@
 	BIGTIDE and this documentation is:
 
 	Copyright © 2019 Masboyo Software Foundation. All rights reserved.
-	
+
 .. meta::
    :keywords: reStructuredText, demonstration, demo, parser
    :description lang=en: A demonstration of the reStructuredText
@@ -31,7 +31,6 @@
 
 .. contents:: Table of Contents
 .. section-numbering::
-
 
 Backgrounds
 ===========
@@ -56,19 +55,17 @@ Tide data owned by BIG is kept in the database system and is connected to Indone
 Requirements
 ============
 
-Created and tested with Python 3.6.5 (with backward compatible to >= 2.7.x), on Ubuntu 18.04 LTS. The only additional packages required are numpy (1.16.2). Do not forget to modify the :literal:`MainDir` variable inside `main.py <https://github.com/syahperdana/BIGTIDE/blob/0d720846a8952b797bf89e992d938517bc918f91/main.py#L68>`__::
+Created and tested with Python 3.6.5 (with backward compatible to >= 2.7.x), on Ubuntu 18.04 LTS. The only additional packages required are numpy (1.16.2). Do not forget to modify the :literal:`MainDir` variable inside `main.py <https://github.com/syahperdana/BIGTIDE/blob/0d720846a8952b797bf89e992d938517bc918f91/main.py#L68>`__:
 
-::
-
-	print("      Real Time Observation      ")
-	print("     Version 1.0 by: MasBoyo     \n")
-
-	MainDir = "/root/PasutBIG/Data" # Change to your directory path where this script located
-
-	if os.path.isdir(MainDir) is False:
-		os.mkdir(MainDir)
-		print("\nDirectory \"" + MainDir + "\" created")
-	else:
+>>> print("      Real Time Observation      ")
+>>> print("     Version 1.0 by: MasBoyo     \n")
+>>>
+>>> MainDir = "/root/PasutBIG/Data" # Change to your directory path where this script located
+>>>
+>>> if os.path.isdir(MainDir) is False:
+>>> 	os.mkdir(MainDir)
+>>> 	print("\nDirectory \"" + MainDir + "\" created")
+>>> else:
 
 *Update:*
 - Also runs on Termux (tested on Android 9.0 Pie)
