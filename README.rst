@@ -38,10 +38,8 @@ Backgrounds
 
 The Indonesian Geospatial Information Agency (BIG) announce the plan to establish sea level monitoring network after 24 :sup:`th` December 2004 Sumatera Tsunami, which devastated the coastal area of Aceh and the surrounding countries in the Indian Ocean. While the progress on the development of the sea level monitoring network was relatively slow, BIG has 136 tide gauge stations located at all part of Indonesia (**Fig. 1.**) to date (2019). However, assuming that one tide gauge station represents a tidal regime of about 100 km of coast line length, an ideal number of permanent tide gauge stations for the whole country should be about 810 stations.
 
-.. |f1| raw:: html
-   <p align="center"><img width="75%" src="/Misc/inatidemap.jpg" title="Map of Indonesia tide gauge station"></p><h5 align="center"><b>Fig. 1.</b> Tide gauge stations across Indonesia</h5>
-
-aa |f1|
+.. raw:: html
+	<p align="center"><img width="75%" src="/Misc/inatidemap.jpg" title="Map of Indonesia tide gauge station"></p><h5 align="center"><b>Fig. 1.</b> Tide gauge stations across Indonesia</h5>
 
 Introductions
 -------------
