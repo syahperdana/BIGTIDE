@@ -13,12 +13,12 @@
    :target: ../master/LICENSE
 
 :Author: Aldwin Syahperdana
-:contact: syahperdana@gmail.com
-:date: $Date: 2019-03-21 10:23:53 +0700 (Tue, 03 Jan 2012) $
-:status: Work in progress
-:revision: $Revision: 01 $
-:version: 0.1
-:copyright:
+:Contact: syahperdana@gmail.com
+:Date: $Date: 2019-03-21 10:23:53 +0700 (Tue, 03 Jan 2012) $
+:Status: Work in progress
+:Revision: $Revision: 01 $
+:Version: 0.1
+:Copyright:
 	BIGTIDE and this documentation is:
 
 	Copyright © 2019 Masboyo Software Foundation. All rights reserved.
