@@ -12,7 +12,8 @@ BIGTIDE
 .. image:: https://img.shields.io/badge/License-MIT-yellow.svg
         :target: ../master/LICENSE
         :alt: License Information
-
+|
+|
 :Author: Aldwin Syahperdana
 :Contact: syahperdana@gmail.com
 :Date: 2019-03-21 10:23:53 +0700
@@ -39,7 +40,7 @@ The Indonesian Geospatial Information Agency (BIG) announce the plan to establis
 
 .. class:: no-web
 
-    .. figure:: https://raw.githubusercontent.com/syahperdana/BIGTIDE/syahperdana-misc/Misc/inatidemap.jpg
+    .. figure:: https://raw.githubusercontent.com/syahperdana/BIGTIDE/master/Misc/inatidemap.jpg
         :alt: Map of Indonesia tide gauge station
         :width: 75%
         :align: center
@@ -53,7 +54,7 @@ Tide data owned by BIG is kept in the database system and is connected to Indone
 
 .. class:: no-web
 
-    .. figure:: https://raw.githubusercontent.com/syahperdana/BIGTIDE/syahperdana-misc/Misc/dirtree.jpg
+    .. figure:: https://raw.githubusercontent.com/syahperdana/BIGTIDE/master/Misc/dirtree.jpg
         :alt: Directory structure of BIGTIDE script
         :width: 100%
         :align: center
