@@ -15,7 +15,6 @@ BIGTIDE
 |
 :Author: Aldwin Syahperdana
 :Contact: syahperdana@gmail.com
-:Date: 2019-03-21 10:23:53 +0700
 :Status: Work in progress
 :Revision: 01
 :Version: 0.1
@@ -79,3 +78,4 @@ Created and tested with Python 3.6.5 (with backward compatible to >= 2.7.x), on 
 
 *Update:*
 - Also runs on Termux (tested on Android 9.0 Pie)
+- Add archiving support
